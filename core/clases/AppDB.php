@@ -6,13 +6,6 @@
 /*~ 29/12/2023
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-COMENTARIOS
-MEJORA AL CREAR EL OBJETO, SE MANTIENE UNA SOLA CONEXION PARA TODO EL PROYECTO.
-27/10/2023 se mejoro la conexion en el objeto ConectorDB, se quito la variable 
-global.
-06/11/2023 se mejoro la subsanacion
-29/12/2023 se dividiron las funciones, como en conector DB
-
 /****************************~WebMaker core MVC~************************************/
 namespace core\clases;
 use core\clases\ConectorDB as ConectorDB;
