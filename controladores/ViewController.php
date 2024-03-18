@@ -28,7 +28,7 @@ class ViewController{
     
     
     public function Index(){
-        echo 'estoy en index';
+        $this->template ->CargarPlantilla('body', 'index.php');
     }
     
     
