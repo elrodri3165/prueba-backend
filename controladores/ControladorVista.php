@@ -29,7 +29,7 @@ class ControladorVista{
     
     
     public function Index(){
-    
+        echo 'estoy en index';
     }
     
     
