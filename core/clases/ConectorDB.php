@@ -6,13 +6,6 @@
 /*~ 29/12/2023
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-COMENTARIOS
-LIBRERIA DE CONEXION A LA BASE DE DATOS WM
-27/10/2023 se modifico para tener una misma conexion en todo el proyecto,
-pese a que el objeto se instancie muchas veces
-06/11/2023 se mejoro la subsanacion
-29/12/2023 se divieron las funciones de busqueda, insert o update delete.
-se agrego manejo de excepciones con try catch.
 /****************************~WebMaker core MVC~************************************/
 
 namespace core\clases;

@@ -6,18 +6,6 @@
 /*~ 21/02/2022
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-COMENTARIOS
-Generador de tokenkey, 
-Luego de instanciar el objeto con al fucion GetToken() se genera el token.
-por defecto se genera un token de 40 caracteres de largo, o sea  genera un token
-de 20 letras y 20 numeros mezclados aleatoriamente.
-Si se pasa un valor por parametro al constructor de objeto el token tomara ese largo 
-total, o sea la mitad para letras y la mitad para numeros, tambien mezclados una letra
-y un numero aleatoriamente.
-
-si se desea que legth sea el largo para letras + numeros agregar comentario de  esta sentencia 
-del constructor ---->>> $this->length = $this->length /2 o eliminarla del constructor.
-
 /****************************~WebMaker core MVC~************************************/
 
 

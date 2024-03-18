@@ -6,13 +6,6 @@
 /*~ 29/12/2023
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-COMENTARIOS
-Clase ejecutora de core WebMaker
-29/12/2023 se agrego clase personalizada para menejo de excepciones personalizadas, y 
-manejo de execpiones en ConectorDB. Se dividieron las fuciones de busqueda, insert o update
-delete en AppDB y ConectorDB.
-Compatible con PHP 8.2
-
 /****************************~WebMaker core MVC~************************************/
 
 
@@ -109,49 +102,6 @@ class WebMaker{
     }
     /***************************************FUNIONES NOTIFICACIONES EN LA SESSION************************************/
     
-    
-    /********************************************FUNIONES DE USUARIOS************************************************/
-    /*
-    Void
-    VALIDAR USUARIOS
-    */
-    public static function ValidateUser(){
-        new CheckuserDB();
-    }
-    /*Void
-    VALIDAR PASS
-    */
-    public static function ValidarPass($email, $password){
-        $resultado = users::GetUserEmailorUser($email);
-        
-        if($resultado != null){
-            $hash = $resultado[0]['password'];
-            if (password_verify($password, $hash)){
-                return $resultado[0];
-            }
-        }
-        
-        return false;
-    }
-    /********************************************FUNIONES DE USUARIOS************************************************/
-    
-    /*FUNCIÓN PARA GENERAR CAPTCHA*/
-    public static function CAPTCHA($cantidad = 5){
-        //se puede usar de las dos formas, (mayúscula o minúscula)
-        $token_captcha = new TokenKey($cantidad);
-        $_SESSION['captcha'] = $token_captcha ->GetToken();
-        $_SESSION['CAPTCHA'] = $token_captcha ->GetToken();
-        
-        echo $_SESSION['captcha'];
-    }
-    
-    
-    /*FUNCIÓN PARA SUBIR ARCHIVOS*/
-    /*en name indicar el campo name del imput, y en nombre el nombre del archivo*/
-    public static function SubirArchivos($tabla = null, $carpeta = null, $name = 'Foto'){
-        $obj = new SubirArchivos($tabla, $carpeta, $name);
-        $resultado = $obj ->Subir();
-    }
     
     /*FUNCIÓN PARA REDIRECCIONAR RÁPIDAMENTE*/
     public static function ReDirect($destino){

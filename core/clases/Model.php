@@ -6,13 +6,6 @@
 /*~ 15/01/2024
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-COMENTARIOS
-AGREGADO DE QUERY SELECT CON Y SIN WHERE
-06/11/2023 se subsanaron todas las string
-29/12/2023 se dividieron las funciones de busqueda, insert o update delete como en appDB y ConectorDB
-15/01/2024 se agregagaron tratamientos de datos, para cuando es float y DateTime (obj PhP)
-
-
 /****************************~WebMaker core MVC~************************************/
 
 namespace core\clases;

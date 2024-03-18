@@ -6,8 +6,6 @@
 /*~ 10/06/2022
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-COMENTARIOS
-
 /****************************~WebMaker core MVC~************************************/
 
 namespace core\clases;

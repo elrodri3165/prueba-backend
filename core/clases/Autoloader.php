@@ -6,9 +6,6 @@
 /*~ 03/04/2022
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-
-*/
-
 /****************************~WebMaker core MVC~************************************/
 
 

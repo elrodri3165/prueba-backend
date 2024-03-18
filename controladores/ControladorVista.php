@@ -1,9 +1,6 @@
 <?php
-/*
-CLASE VISTA.
-ARAMAR ACA LAS DISTINTAS VISTAS, CON LA AYUDA DE LA CLASE TEMPLATE.
-*/
-use core\clases\Template as Template;
+
+use core\clases\Template;
 
 class ControladorVista{
     
@@ -31,41 +28,12 @@ class ControladorVista{
     }
     
     
-    /*PARA PASAR PARÁMETROS EN LOS MÉTODOS, SE SUGIERE PONER UN VALOR
-    POR DEFECTO DE CADA VARIABLE, PARA EVITAR ERRORES CUANDO LA URL VA SIN
-    PARÁMETROS*/
     public function Index(){
-        $this->template ->CargarPlantilla('body1','index.php');
-        
-        $obj = new users();
-        
-        $res = $obj ->Buscar();
+    
     }
     
     
-    public function Admin(){
-        $this->template ->CargarPlantilla('body1','admin.php');
-    }
-    
-    public function RegistrarUsuario(){
-        $this->template ->CargarPlantilla('body1','registrar.php');
-    }
     
     
-    public function Login(){
-        if (isset($_SESSION['user'])){
-            WebMaker::ValidateUser();
-            //funcion usada para validar usuarios
-            $usuario =  $_SESSION['user']->DevolverUserDB();
-            
-            //genero el token
-            WebMaker::StartToken();
-                        
-            $this->template ->CargarPlantilla('body1','login.php');
-            $this->template -> CargarVariable('usuario',$usuario);
-            $this->template -> CargarVariable('token', $_SESSION['token']);
-        }else{
-            WebMaker::ReDirect('index');
-        }
-    }
+    
 }

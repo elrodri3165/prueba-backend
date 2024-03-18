@@ -43,7 +43,7 @@ if (PRODUCCION){
      define ('URL'                  ,'http://localhost:8080/'); //DEFINIR!
     
      /*CONTSTANES DE CONEXION DB PRUDUCCION*/
-     define('SERVIDOR'              ,'localhost');
+     define('SERVIDOR'              ,'localhost:8081');
      define('USUARIO'               ,'');
      define('CLAVE'                 , '');
      define('BASE'                  ,'prueba');
@@ -55,7 +55,7 @@ else{
     define ('URL'                   ,'http://localhost:8080/'); //DEFINIR!
     
     /*CONTSTANES DE CONEXION DB*/
-    define('SERVIDOR'               ,'localhost');
+    define('SERVIDOR'               ,'localhost:8081');
     define('USUARIO'                ,'prueba_web');
     define('CLAVE'                  , '12345');
     define('BASE'                   ,'prueba_web');   

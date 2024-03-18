@@ -6,15 +6,6 @@
 /*~ 21/02/2022
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
 
-COMENTARIOS
-VERSION 4.0. MEJORA DEL CONTROLADOR.
-BUSCA PARÁMETROS TANTO AMIGABLES COMO CON ? Y LOS ENVIA COMO RESULTADO.
-
-DENTRO DE ['friendly_parameters'] ESTAN LOS AMIGABLES.
-
-FALTARIA CORREGIR EL ERROR DE LA RUTA
-WEBMAKER/LOGIN?HOLA. -- NO TOMA EL LOGIN
-
 /****************************~WebMaker core MVC~************************************/
 
 namespace core\clases;
