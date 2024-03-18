@@ -3,14 +3,31 @@
 $routes_controlador = [
     
     "" => [
-        "ControladorVista" => "Index"
+        "ViewController" => "Index"
     ],
     "/" => [
-        "ControladorVista" => "Index"
+        "ViewController" => "Index"
     ],
     "index" => [
-        "ControladorVista" => "Index"
+        "ViewController" => "Index"
     ],
 
+
+
+    /*RUTAS DE ENDPOINTS*/
+    /*CREATE USER*/
+    "create-user" => [
+        "LogicController" => "CreateUser"
+    ],
+
+    /*UPDATE USER*/
+    "update-user" => [
+        "LogicController" => "UpdateUser"
+    ],
+
+    /*DELETE USER*/
+    "delete-user" => [
+        "LogicController" => "DeleteUser"
+    ],
     
 ];

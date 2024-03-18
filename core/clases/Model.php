@@ -178,11 +178,6 @@ abstract class Model{
                 
             }
             
-            /* COMENTADA PORQUE DA ERROR
-            if ($total_where != $i_where){
-                die('ERROR: Alguna de las no variable cumple la condicion para WHERE');
-            }
-            */
             
             if ($cantidad == $no_where){
                 die('ERROR: Ninguna variable cumple la condicion para WHERE');

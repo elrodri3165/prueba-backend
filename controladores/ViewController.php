@@ -1,8 +1,7 @@
 <?php
-
 use core\clases\Template;
 
-class ControladorVista{
+class ViewController{
     
     private $template;
     

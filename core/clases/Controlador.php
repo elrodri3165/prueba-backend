@@ -80,9 +80,8 @@ class Controlador{
     
     
     private function Error404(){
-        \ControladorVista::Error404();
         header("HTTP/1.0 404 Not Found");
-        $this->ExecuteRouteControlador('ControladorVista','Error404');
+        \ViewController::Error404();
         die;
     }
     
