@@ -8,8 +8,8 @@ class user extends Model{
     protected string $email;
     protected string $pass;
     protected string $openid;
-    protected DateTime $creation_date;
-    protected DateTime $update_date_datetime;
+    protected \DateTime $creation_date;
+    protected \DateTime $update_date_datetime;
 
     /**
      * Get the value of id

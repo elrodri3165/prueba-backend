@@ -1,5 +1,7 @@
 <?php
 use core\clases\WebMaker;
+use models\user;
+use models\user_comment;
 
 class LogicController{
 
@@ -7,14 +9,14 @@ class LogicController{
     
     public function __construct()
     {   
-        WebMaker::ValidateToken();
+        //WebMaker::ValidateToken();
         $result = null;
     }
 
     public function __destruct()
     {
         if($this->result != null){
-            //acciones si esta ok
+            echo json_encode($this->result);
         }else{
             //acciones si falló
         }
@@ -57,6 +59,10 @@ class LogicController{
         }
     }
     
-    
+    public function ReadUsers()
+    {   
+        $user = new \user();
+        $this->result = $user ->Buscar();
+    }
     
 }

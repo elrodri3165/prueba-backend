@@ -15,7 +15,7 @@ class ConectorDB{
     private $conexion;
     public $error;
 
-    private function __construct($servidor, $usuario, $clave, $base) { 
+    private function __construct($servidor, $usuario, $clave, $base) {
         try {
             $this->conexion = new \mysqli($servidor, $usuario, $clave, $base);
         } catch (\mysqli_sql_exception $e) {
@@ -65,16 +65,6 @@ class ConectorDB{
         return $this ->conexion -> real_escape_string($string);
     }
     
-    
-    private function _connect($servidor, $usuario, $clave, $base){
-        if(!isset($this->conexion)){
-            $this-> conexion = new \mysqli ($servidor, $usuario, $clave, $base);
-        }
-        if($this->conexion->connect_errno){
-            $this->error();
-            return false;
-        }    
-    }
 
     /**************************SELECT*****************************/
     protected function Select($query){

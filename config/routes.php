@@ -20,6 +20,11 @@ $routes_controlador = [
         "LogicController" => "CreateUser"
     ],
 
+    /*READ USERS*/
+    "read-users" => [
+        "LogicController" => "ReadUsers"
+    ],
+
     /*UPDATE USER*/
     "update-user" => [
         "LogicController" => "UpdateUser"

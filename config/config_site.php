@@ -25,8 +25,8 @@ define('DS'                         , DIRECTORY_SEPARATOR);
 define('ROOT'                       , getcwd().DS);
 define('APP'                        , ROOT.'core'.DS);
 define('CLASSES'                    , APP.'clases'.DS);
-define('MODELOS'                    , ROOT.'modelos'.DS);
-define('CONTROLADORES'              , ROOT.'controladores'.DS);
+define('CONTROLLERS'                , ROOT.'controllers'.DS);
+define('MODELS'                     , ROOT.'models'.DS);
 define('CONFIG'                     , ROOT.'config'.DS);
 
 
@@ -43,10 +43,10 @@ if (PRODUCCION){
      define ('URL'                  ,'http://localhost:8080/'); //DEFINIR!
     
      /*CONTSTANES DE CONEXION DB PRUDUCCION*/
-     define('SERVIDOR'              ,'localhost:8081');
-     define('USUARIO'               ,'');
-     define('CLAVE'                 , '');
-     define('BASE'                  ,'prueba');
+    define('SERVIDOR'              ,'localhost');
+    define('USUARIO'               ,'');
+    define('CLAVE'                 , '');
+    define('BASE'                  ,'prueba');
 }
 /************************************AMBIENTE DE PRODUCCION***********************************************/
 
@@ -55,9 +55,9 @@ else{
     define ('URL'                   ,'http://localhost:8080/'); //DEFINIR!
     
     /*CONTSTANES DE CONEXION DB*/
-    define('SERVIDOR'               ,'localhost:8081');
+    define('SERVIDOR'               ,'mariadb');
     define('USUARIO'                ,'prueba_web');
-    define('CLAVE'                  , '12345');
-    define('BASE'                   ,'prueba_web');   
+    define('CLAVE'                  ,'123456');
+    define('BASE'                   ,'prueba');
 }
 /*************************************AMBIENTE DE TESTING*************************************************/

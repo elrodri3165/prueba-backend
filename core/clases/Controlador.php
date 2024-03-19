@@ -58,14 +58,14 @@ class Controlador{
             foreach ($routes_controlador as $ruta => $controladores){
                 if ($ruta == $this->routerequest[1]){
                     foreach ($controladores as $controlador => $accion){
-                        if (!is_file(CONTROLADORES.$controlador.'.php')){
+                        if (!is_file(CONTROLLERS.$controlador.'.php')){
                             exit('No se encontro el controlador'.$controlador);
                         }
                         $controlador_objeto = new $controlador();
                         if(!method_exists($controlador_objeto, $accion)){
                             exit('No se encontro el método: '.$accion.', Dentro del controlador: '.$controlador);
                         }
-                        $this->ExecuteRouteControlador($controlador_objeto, $accion);
+                        $this->ExecuteRouteController($controlador_objeto, $accion);
                         die;
                     }
                 }
@@ -73,7 +73,7 @@ class Controlador{
         }
     }
     
-    private function ExecuteRouteControlador($controlador, $route){
+    private function ExecuteRouteController($controlador, $route){
         $total_parameters = array_merge($this->parameters, $this->frindly_parameters);
         call_user_func_array(array($controlador, $route), [$total_parameters]);
     }

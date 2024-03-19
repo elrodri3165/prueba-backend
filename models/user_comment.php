@@ -7,8 +7,8 @@ class user_comment extends Model{
     protected int $user;
     protected string $coment_text;
     protected int $likes;
-    protected DateTime $creation_date;
-    protected DateTime $update_date;
+    protected \DateTime $creation_date;
+    protected \DateTime $update_date;
 
     /**
      * Get the value of id
