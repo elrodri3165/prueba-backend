@@ -33,7 +33,9 @@ class LogicController{
             echo json_encode(null);
         }
     }
+   
     
+    /****************************CRUD USER********************************/
     public function CreateUser()
     {
         if(isset($_POST['fullname'], $_POST['email'], $_POST['pass'], $_POST['openid'])){
@@ -47,8 +49,6 @@ class LogicController{
             $this->result = $user ->Guardar();
         }
     }
-    
-
     public function UpdateUser()
     {
         if(isset($_POST['id'], $_POST['fullname'], $_POST['email'], $_POST['pass'], $_POST['openid'])){
@@ -64,7 +64,6 @@ class LogicController{
             $this->result = $user ->Actualizar('id');
         }
     }
-    
     public function DeleteUser()
     {
         if(isset($_POST['id'])){
@@ -74,11 +73,52 @@ class LogicController{
             $this->result = $user ->Borrar('id');
         }
     }
-    
     public function ReadUsers()
     {   
         $user = new \user();
         $this->result = $user ->Buscar();
     }
+    /****************************CRUD USER********************************/
+
     
+
+    /**************************CRUD USER_COMMENT**************************/
+    public function CreateUserComment()
+    {
+        if(isset($_POST['user'], $_POST['comment_text'], $_POST['likes'])){
+            $user_comment = new \user_comment();
+            $user_comment->setUser($_POST['user']);
+            $user_comment->setComent_text($_POST['comment_text']);
+            $user_comment->setLikes($_POST['likes']);
+
+            $this->result = $user_comment ->Guardar();
+        }
+    }
+    public function UpdateUserComment()
+    {
+        if(isset($_POST['id'], $_POST['user'], $_POST['comment_text'], $_POST['likes'])){
+            $user_comment = new \user_comment();
+            $user_comment->setUser($_POST['id']);
+            $user_comment->setUser($_POST['user']);
+            $user_comment->setComent_text($_POST['comment_text']);
+            $user_comment->setLikes($_POST['likes']);
+
+            $this->result = $user_comment ->Actualizar('id');
+        }
+    }   
+    public function DeleteUserComment()
+    {
+        if(isset($_POST['id'])){
+            $user_comment = new \user_comment();
+            $user_comment->setId($_POST['id']);
+
+            $this->result = $user_comment ->Borrar('id');
+        }
+    }
+    public function ReadUserComment()
+    {   
+        $user_comment = new \user_comment();
+        $this->result = $user_comment ->Buscar();
+    }
+    /**************************CRUD USER_COMMENT**************************/
 }
