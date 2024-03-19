@@ -29,6 +29,8 @@ class ViewController{
     
     public function Index(){
         $this->template ->CargarPlantilla('body', 'index.php');
+        $this->template ->CargarPlantilla('nav', 'nav.php');
+        $this->template ->CargarPlantilla('content', 'crud.php');
     }
     
     
