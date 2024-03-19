@@ -239,4 +239,34 @@
                 console.error('Error al obtener los datos:', error);
             });
     }
+
+
+    function DeleteUser(id){
+        ruta = 'delete-user/';
+        
+        var formData = new FormData();
+
+        formData.append('id', id);
+
+        const http = new XMLHttpRequest();
+        const URLdomain = window.location.host;
+        
+        const url = '/' + ruta;
+
+        http.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if (this.responseText != 'null') {
+                    swal("Correcto!", "El registro se eliminó con éxito!", "success");
+                    CleanFormUser();
+                    console.log(this.responseText);
+                } else {
+                    swal("Error!", "Ocurrió un error", "error");
+                }
+                cargarRegistros();
+            }
+        }
+
+        http.open("POST", url);
+        http.send(formData);
+    }
 </script>

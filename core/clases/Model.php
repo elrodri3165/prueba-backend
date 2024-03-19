@@ -48,6 +48,19 @@ abstract class Model{
         
         return $conexion ->Select($query);
     }
+
+    public function Borrar($where){
+        echo $query = $this->CrearQuery('DELETE', $where);
+        $conexion = new AppDB();
+        
+        return $conexion ->UpdateDelete($query);
+    }
+
+    public function BorrarQuery($query){
+        $conexion = new AppDB();
+        
+        return $conexion ->UpdateDelete($query);
+    }
     
     
     /*funcion de generar campos y valores*/
@@ -104,10 +117,16 @@ abstract class Model{
             return "INSERT INTO ".$tabla." ".$campos." VALUES ".$valores;
         }
         
-        else if ($tipo == 'UPDATE'){
+        else if ($tipo == 'UPDATE' || $tipo == 'DELETE'){
             $where = str_replace(" ", "", explode(',', $where));
             
-            $campo_valor = 'UPDATE '.$tabla.' SET ';
+            if($tipo == 'UPDATE'){
+                $campo_valor = 'UPDATE '.$tabla.' SET ';
+            }
+
+            if($tipo == 'DELETE'){
+                $campo_valor = 'DELETE '.$tabla.' SET ';
+            }
 
             $i = 1;
             $no_where = 0;
@@ -177,6 +196,7 @@ abstract class Model{
                 }    
                 
             }
+            
             
             
             if ($cantidad == $no_where){

@@ -71,8 +71,11 @@ class LogicController{
     
     public function DeleteUser()
     {
-        if(isset($_POST['id'], $_POST['fullname'], $_POST['email'], $_POST['pass'], $_POST['openid'])){
-            //falta la lógica de eliminar
+        if(isset($_POST['id'])){
+            $user = new \user();
+            $user->setId($_POST['id']);
+
+            $this->result = $user ->Borrar('id');
         }
     }
     
