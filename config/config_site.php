@@ -27,11 +27,10 @@ define ("ERRORES_PERSONALIZADOS"    ,true);
 
 define ('URL'                       ,'http://localhost:8080/');
 
-
 /*************************************DATABASE*************************************************/ 
-    /*CONTSTANES DE CONEXION DB*/
-    define('SERVIDOR'               ,'mariadb');
-    define('USUARIO'                ,'prueba_web');
-    define('CLAVE'                  ,'123456');
-    define('BASE'                   ,'prueba');
+/*CONTSTANES DE CONEXION DB*/
+define('SERVIDOR'                   ,'mariadb');
+define('USUARIO'                    ,'prueba_web');
+define('CLAVE'                      ,'123456');
+define('BASE'                       ,'prueba');
 /*************************************DATABASE*************************************************/
