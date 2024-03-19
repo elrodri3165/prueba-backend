@@ -138,6 +138,8 @@
             .then(data => {
                 if (data != null) {
                     insertarRegistrosEnTabla(data);
+                }else{
+                    document.querySelector('#table tbody').innerHTML = '';
                 }
             })
             .catch(error => {
@@ -202,7 +204,6 @@
                 if (this.responseText != 'null') {
                     swal("Correcto!", "El registro se creó con éxito!", "success");
                     CleanFormUser();
-                    console.log(this.responseText);
                 } else {
                     swal("Error!", "Ocurrió un error", "error");
                 }
@@ -258,7 +259,6 @@
                 if (this.responseText != 'null') {
                     swal("Correcto!", "El registro se eliminó con éxito!", "success");
                     CleanFormUser();
-                    console.log(this.responseText);
                 } else {
                     swal("Error!", "Ocurrió un error", "error");
                 }

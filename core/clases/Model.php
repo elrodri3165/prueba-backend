@@ -50,7 +50,7 @@ abstract class Model{
     }
 
     public function Borrar($where){
-        echo $query = $this->CrearQuery('DELETE', $where);
+        $query = $this->CrearQuery('DELETE', $where);
         $conexion = new AppDB();
         
         return $conexion ->UpdateDelete($query);
@@ -125,7 +125,7 @@ abstract class Model{
             }
 
             if($tipo == 'DELETE'){
-                $campo_valor = 'DELETE '.$tabla.' SET ';
+                $campo_valor = 'DELETE FROM '.$tabla;
             }
 
             $i = 1;
@@ -196,8 +196,6 @@ abstract class Model{
                 }    
                 
             }
-            
-            
             
             if ($cantidad == $no_where){
                 die('ERROR: Ninguna variable cumple la condicion para WHERE');
