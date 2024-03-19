@@ -76,6 +76,8 @@
             <div class="modal-body">
                 <form action="" method="post" id="form-create-user">
 
+                    <input type="hidden" name="" id="id" value="">
+
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="label-fullname">FullName</span>
                         <input type="text" class="form-control" id="fullname" aria-label="Fullname" aria-describedby="Fullname">
@@ -111,6 +113,7 @@
     var modal = document.getElementById('modalCreateUser');
 
     function CleanFormUser(){
+        document.getElementById('id').value = null;
         document.getElementById('fullname').value = null;
         document.getElementById('email').value = null;
         document.getElementById('pass').value = null;
@@ -167,11 +170,18 @@
     }
 
 
-    function CreateUser() {
+    function CreateUpdateUser() {
+        var id = document.getElementById('id').value;
         var fullname = document.getElementById('fullname').value;
         var email = document.getElementById('email').value;
         var pass = document.getElementById('pass').value;
         var openid = document.getElementById('openid').value;
+
+        if(id == null || id == ''){
+            var ruta = 'create-user/';
+        }else{
+            var ruta = 'update-user/'
+        }
 
         var formData = new FormData();
 
@@ -182,7 +192,7 @@
 
         const http = new XMLHttpRequest();
         const URLdomain = window.location.host;
-        var ruta = 'create-user/';
+        
         const url = 'http://' + URLdomain + '/' + ruta;
 
         http.onreadystatechange = function() {
@@ -202,7 +212,7 @@
     }
 
     document.getElementById('btn-create-user').addEventListener("click", function() {
-        CreateUser();
+        CreateUpdateUser();
     });
 
     function UpdateUser(id) {
