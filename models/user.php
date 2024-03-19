@@ -9,7 +9,7 @@ class user extends Model{
     protected string $pass;
     protected string $openid;
     protected \DateTime $creation_date;
-    protected \DateTime $update_date_datetime;
+    protected \DateTime $update_date;
 
     /**
      * Get the value of id
@@ -134,9 +134,9 @@ class user extends Model{
     /**
      * Get the value of update_date_datetime
      */ 
-    public function getUpdate_date_datetime()
+    public function getUpdate_date()
     {
-        return $this->update_date_datetime;
+        return $this->update_date;
     }
 
     /**
@@ -144,9 +144,9 @@ class user extends Model{
      *
      * @return  self
      */ 
-    public function setUpdate_date_datetime($update_date_datetime)
+    public function setUpdate_date($update_date_datetime)
     {
-        $this->update_date_datetime = $update_date_datetime;
+        $this->update_date = new DateTime($update_date_datetime);
 
         return $this;
     }

@@ -176,15 +176,17 @@
         var email = document.getElementById('email').value;
         var pass = document.getElementById('pass').value;
         var openid = document.getElementById('openid').value;
+        var ruta;
 
         if(id == null || id == ''){
-            var ruta = 'create-user/';
+            ruta = 'create-user/';
         }else{
-            var ruta = 'update-user/'
+            ruta = 'update-user/'
         }
 
         var formData = new FormData();
 
+        formData.append('id', id);
         formData.append('fullname', fullname);
         formData.append('email', email);
         formData.append('pass', pass);
@@ -193,13 +195,14 @@
         const http = new XMLHttpRequest();
         const URLdomain = window.location.host;
         
-        const url = 'http://' + URLdomain + '/' + ruta;
+        const url = '/' + ruta;
 
         http.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 if (this.responseText != 'null') {
                     swal("Correcto!", "El registro se creó con éxito!", "success");
                     CleanFormUser();
+                    console.log(this.responseText);
                 } else {
                     swal("Error!", "Ocurrió un error", "error");
                 }
@@ -222,6 +225,7 @@
                 if (data != null) {
                     for (var i = 0; i < data.length; i++) {
                         if (data[i]['id'] == id) {
+                            document.getElementById('id').value = data[i]['id'];
                             document.getElementById('fullname').value = data[i]['fullname'];
                             document.getElementById('email').value = data[i]['email'];
                             document.getElementById('pass').value = data[i]['pass'];

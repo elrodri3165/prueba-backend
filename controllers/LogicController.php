@@ -9,6 +9,22 @@ class LogicController{
     
     public function __construct()
     {   
+        // Permitir solicitudes desde cualquier origen
+        header("Access-Control-Allow-Origin: *");
+
+        // Permitir los métodos POST desde cualquier origen
+        header("Access-Control-Allow-Methods: POST");
+
+        // Permitir los encabezados Content-Type y X-Requested-With
+        header("Access-Control-Allow-Headers: Content-Type, X-Requested-With");
+
+        // Permitir que el navegador envíe cookies a través de CORS
+        header("Access-Control-Allow-Credentials: true");
+
+        // Si es una solicitud OPTIONS, terminar la ejecución del script
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            exit();
+        }
         //WebMaker::ValidateToken();
         $result = null;
     }
@@ -47,6 +63,7 @@ class LogicController{
             $user->setEmail($_POST['email']);
             $user->setPass($_POST['pass']);
             $user->setOpenid($_POST['openid']);
+            $user->setUpdate_date(date('Y-m-d H:i:s'));
 
             $this->result = $user ->Actualizar('id');
         }
