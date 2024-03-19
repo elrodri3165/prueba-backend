@@ -110,9 +110,19 @@
 
     var modal = document.getElementById('modalCreateUser');
 
-    function abrirModal() {
+    function CleanFormUser(){
+        document.getElementById('fullname').value = null;
+        document.getElementById('email').value = null;
+        document.getElementById('pass').value = null;
+        document.getElementById('openid').value = null;
+    }
+
+    function abrirModal(clean = true) {
         var myModal = new bootstrap.Modal(modal);
         myModal.show();
+        if(clean == true){
+            CleanFormUser();
+        }
     }
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -179,11 +189,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 if (this.responseText != 'null') {
                     swal("Correcto!", "El registro se creó con éxito!", "success");
-                    document.getElementById('fullname').value = null;
-                    document.getElementById('email').value = null;
-                    document.getElementById('pass').value = null;
-                    document.getElementById('openid').value = null;
-
+                    CleanFormUser();
                 } else {
                     swal("Error!", "Ocurrió un error", "error");
                 }
@@ -210,7 +216,7 @@
                             document.getElementById('email').value = data[i]['email'];
                             document.getElementById('pass').value = data[i]['pass'];
                             document.getElementById('openid').value = data[i]['openid'];
-                            abrirModal();
+                            abrirModal(false);
                         }
                     }
                 }
