@@ -48,9 +48,7 @@ class ConectorDB{
 
     /**************************ERROR******************************/
     protected function manejarExcepcion(\Exception $e) {
-        // Aquí puedes personalizar cómo manejar la excepción
-        // Por ejemplo, podrías loggearla, enviar un correo electrónico, etc.
-        echo "Error: " . $e->getMessage();
+        //echo "Error: " . $e->getMessage();
     }
 
     private function error() {

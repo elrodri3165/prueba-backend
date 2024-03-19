@@ -16,11 +16,10 @@ class LogicController{
     public function __destruct()
     {
         if($this->result != null){
-            //falta eva
+            echo json_encode($this->result);
         }else{
-            
+            echo json_encode(null);
         }
-        echo json_encode($this->result);
     }
     
     public function CreateUser()
@@ -34,7 +33,6 @@ class LogicController{
             $user->setOpenid($_POST['openid']);
 
             $this->result = $user ->Guardar();
-            var_dump($this->result);
         }
     }
     

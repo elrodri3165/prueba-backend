@@ -115,7 +115,9 @@
             .then(response => response.json())
             .then(data => {
                 // Llamar a la función para insertar los registros en la tabla
-                insertarRegistrosEnTabla(data);
+                if(data != null){
+                    insertarRegistrosEnTabla(data);
+                }
             })
             .catch(error => {
                 console.error('Error al obtener los datos:', error);
@@ -165,8 +167,13 @@
 
         http.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                if(this.responseText != null ){
+                if(this.responseText != 'null' ){
                     swal("Correcto!", "El registro se creó con éxito!", "success");
+                    document.getElementById('fullname').value = null;
+                    document.getElementById('email').value = null;
+                    document.getElementById('pass').value =  null;
+                    document.getElementById('openid').value = null
+
                 }else{
                     swal("Error!", "Ocurrió un error", "error");
                 }
