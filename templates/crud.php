@@ -1,7 +1,7 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">ABM categorias del cuerpo de Bomberos</h1>
+            <h1 class="mt-4">ABM USERS</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="{ruta}">Menu principal</a></li>
             </ol>
@@ -34,6 +34,8 @@
                                 <th scope="col">OpenId</th>
                                 <th scope="col">Cration Date</th>
                                 <th scope="col">Update Date</th>
+                                <th scope="col">Actulizar</th>
+                                <th scope="col">Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -114,8 +116,7 @@
         fetch('/read-users')
             .then(response => response.json())
             .then(data => {
-                // Llamar a la función para insertar los registros en la tabla
-                if(data != null){
+                if (data != null) {
                     insertarRegistrosEnTabla(data);
                 }
             })
@@ -141,6 +142,8 @@
             <td>${registro.openid}</td>
             <td>${registro.creation_date}</td>
             <td>${registro.update_date}</td>
+            <td><button type="button" onclick="UpdateUser(${registro.id})" class="btn btn-success">Editar</button></td>
+            <td><button type="button" onclick="DeleteUser(${registro.id})" class="btn btn-danger">Eliminar</button></td>
         `;
             tableBody.appendChild(row);
         });
@@ -167,14 +170,14 @@
 
         http.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                if(this.responseText != 'null' ){
+                if (this.responseText != 'null') {
                     swal("Correcto!", "El registro se creó con éxito!", "success");
                     document.getElementById('fullname').value = null;
                     document.getElementById('email').value = null;
-                    document.getElementById('pass').value =  null;
-                    document.getElementById('openid').value = null
+                    document.getElementById('pass').value = null;
+                    document.getElementById('openid').value = null;
 
-                }else{
+                } else {
                     swal("Error!", "Ocurrió un error", "error");
                 }
                 cargarRegistros();
@@ -188,4 +191,24 @@
     document.getElementById('btn-create-user').addEventListener("click", function() {
         CreateUser();
     });
+
+    function UpdateUser(id) {
+        fetch('/read-users')
+            .then(response => response.json())
+            .then(data => {
+                if (data != null) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i]['id'] == id) {
+                            document.getElementById('fullname').value = data[i]['fullname'];
+                            document.getElementById('email').value = data[i]['email'];
+                            document.getElementById('pass').value = data[i]['pass'];
+                            document.getElementById('openid').value = data[i]['openid'];
+                        }
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error al obtener los datos:', error);
+            });
+    }
 </script>
