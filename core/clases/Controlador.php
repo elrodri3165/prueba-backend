@@ -46,11 +46,11 @@ class Controlador{
         $this->Error404();
     }
 
-    public function __destruct(){
-        
-    }
-        
+   
     private function SerchRoute($route){
+        if (!is_file(CONFIG.'routes.php')){
+            exit('No se encontro el archivo config');
+        }
         require CONFIG.'routes.php';
         $this->routerequest = $route;
         
