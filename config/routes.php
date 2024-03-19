@@ -11,7 +11,12 @@ $routes_controlador = [
     "index" => [
         "ViewController" => "Index"
     ],
-
+    "crud-users" => [
+        "ViewController" => "CrudUsers"
+    ],
+    "crud-user-comments" => [
+        "ViewController" => "CrudUserComments"
+    ],
 
 
     /*****************RUTAS DE ENDPOINTS*****************/

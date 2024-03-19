@@ -31,8 +31,17 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Menu principal
                     </a>
+
+                    <a class="nav-link" href="{ruta}crud-users">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        CRUD USERS
+                    </a>
+
+                    <a class="nav-link" href="{ruta}crud-user-comments">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        CRUD USER COMMENTS
+                    </a>
                     
-          
                 </div>
             </div>
             <div class="sb-sidenav-footer">

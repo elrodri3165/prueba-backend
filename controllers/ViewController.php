@@ -9,6 +9,8 @@ class ViewController{
         $this->template = new Template('templates');
         $this->template ->CargarArchivo('html_basica.php');
         $this->template ->CargarPlantilla('head', 'head.php');
+        $this->template ->CargarPlantilla('body', 'index.php');
+        $this->template ->CargarPlantilla('nav', 'nav.php');
     }
     
     public function __destruct(){
@@ -25,16 +27,17 @@ class ViewController{
         $template ->CargarVariable('version',VERSION);
         $template->Mostrar();
     }
-    
-    
+
     public function Index(){
-        $this->template ->CargarPlantilla('body', 'index.php');
-        $this->template ->CargarPlantilla('nav', 'nav.php');
-        $this->template ->CargarPlantilla('content', 'crud.php');
+
     }
     
-    
-    
-    
+    public function CrudUsers(){
+        $this->template ->CargarPlantilla('content', 'crud_users.php');
+    }
+
+    public function CrudUserComments(){
+        $this->template ->CargarPlantilla('content', 'crud_users.php');
+    }
     
 }
