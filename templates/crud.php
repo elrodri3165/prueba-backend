@@ -11,7 +11,7 @@
                     <p>Este proyecto lo realize con php nativo, me ayude de algunas clases de desarrollo propio que utilizo para hacer proyectos con una estructura MVC</p>
 
 
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
                         Agregar nuevo user
                     </button>
 
@@ -66,7 +66,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalCreateUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -107,8 +107,15 @@
 </div>
 
 <script>
+
+    var modal = document.getElementById('modalCreateUser');
+
+    function abrirModal() {
+        var myModal = new bootstrap.Modal(modal);
+        myModal.show();
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
-        // Llamar a la función para cargar los registros cuando la página cargue
         cargarRegistros();
     });
 
@@ -203,6 +210,7 @@
                             document.getElementById('email').value = data[i]['email'];
                             document.getElementById('pass').value = data[i]['pass'];
                             document.getElementById('openid').value = data[i]['openid'];
+                            abrirModal();
                         }
                     }
                 }
