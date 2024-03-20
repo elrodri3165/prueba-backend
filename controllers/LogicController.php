@@ -115,7 +115,7 @@ class LogicController{
             $this->result = $user_comment ->Borrar('id');
         }
     }
-    public function ReadUserComment()
+    public function ReadUserComments()
     {   
         $user_comment = new \user_comment();
         $this->result = $user_comment ->Buscar();

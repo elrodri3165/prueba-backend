@@ -37,7 +37,7 @@ class ViewController{
     }
 
     public function CrudUserComments(){
-        $this->template ->CargarPlantilla('content', 'crud_users.php');
+        $this->template ->CargarPlantilla('content', 'crud_user_comments.php');
     }
     
 }

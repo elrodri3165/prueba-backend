@@ -11,8 +11,8 @@
                     <p>Este proyecto lo realize con php nativo, me ayude de algunas clases de desarrollo propio que utilizo para hacer proyectos con una estructura MVC</p>
 
 
-                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
-                        Agregar nuevo user
+                    <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUserComment">
+                        Agregar nuevo comentario
                     </button>
 
                 </div>
@@ -28,12 +28,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">FullName</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Pass</th>
-                                <th scope="col">OpenId</th>
-                                <th scope="col">Cration Date</th>
-                                <th scope="col">Update Date</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Comentario</th>
+                                <th scope="col">Likes</th>
                                 <th scope="col">Actulizar</th>
                                 <th scope="col">Eliminar</th>
                             </tr>
@@ -66,43 +63,40 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="modalCreateUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalCreateUserComment" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar nuevo user</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Agregar nuevo comentario</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="post" id="form-create-user">
+                <form action="" method="post" id="form-create-user-comment">
 
                     <input type="hidden" name="" id="id" value="">
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="label-fullname">FullName</span>
-                        <input type="text" class="form-control" id="fullname" aria-label="Fullname" aria-describedby="Fullname">
+                        <span class="input-group-text" id="label-user">User</span>
+                        <select class="form-control" id="user">
+
+                        </select>
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="label-email">Email</span>
-                        <input type="email" class="form-control" id="email" aria-label="Email" aria-describedby="Email">
+                        <span class="input-group-text" id="label-comment-text">Comentario</span>
+                        <textarea class="form-control" id="comment-text" aria-label="Comment-text" aria-describedby="Comment-text"></textarea>
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="label-email">Pass</span>
-                        <input type="password" class="form-control" id="pass" aria-label="Pass" aria-describedby="Pass">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="lebel-openid">OpenId</span>
-                        <input type="number" class="form-control" id="openid" aria-label="OpenId" aria-describedby="OpenId">
+                        <span class="input-group-text" id="label-likes">Likes</span>
+                        <input type="number" class="form-control" id="likes" aria-label="Likes" aria-describedby="Likes">
                     </div>
 
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                <button type="button" class="btn btn-dark" id="btn-create-user">Agregar</button>
+                <button type="button" class="btn btn-dark" id="btn-create-user-comment">Agregar</button>
             </div>
         </div>
     </div>
@@ -110,21 +104,20 @@
 
 <script>
 
-    var modal = document.getElementById('modalCreateUser');
+    var modal = document.getElementById('modalCreateUserComment');
 
-    function CleanFormUser(){
+    function CleanFormUserComment(){
         document.getElementById('id').value = null;
-        document.getElementById('fullname').value = null;
-        document.getElementById('email').value = null;
-        document.getElementById('pass').value = null;
-        document.getElementById('openid').value = null;
+        document.getElementById('comment-text').value = null;
+        document.getElementById('likes').value = null;
+        
     }
 
     function abrirModal(clean = true) {
         var myModal = new bootstrap.Modal(modal);
         myModal.show();
         if(clean == true){
-            CleanFormUser();
+            CleanFormUserComment();
         }
     }
 
@@ -133,7 +126,7 @@
     });
 
     function cargarRegistros() {
-        fetch('/read-users')
+        fetch('/read-user-comments')
             .then(response => response.json())
             .then(data => {
                 if (data != null) {
@@ -158,12 +151,9 @@
             const row = document.createElement('tr');
             row.innerHTML = `
             <td>${registro.id}</td>
-            <td>${registro.fullname}</td>
-            <td>${registro.email}</td>
-            <td>${registro.pass}</td>
-            <td>${registro.openid}</td>
-            <td>${registro.creation_date}</td>
-            <td>${registro.update_date}</td>
+            <td>${registro.user}</td>
+            <td>${registro.comment_text}</td>
+            <td>${registro.likes}</td>
             <td><button type="button" onclick="UpdateUser(${registro.id})" class="btn btn-success">Editar</button></td>
             <td><button type="button" onclick="DeleteUser(${registro.id})" class="btn btn-danger">Eliminar</button></td>
         `;
@@ -215,7 +205,7 @@
         http.send(formData);
     }
 
-    document.getElementById('btn-create-user').addEventListener("click", function() {
+    document.getElementById('btn-create-user-comment').addEventListener("click", function() {
         CreateUpdateUser();
     });
 

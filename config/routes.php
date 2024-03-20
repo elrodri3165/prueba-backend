@@ -40,19 +40,19 @@ $routes_controlador = [
     
 
     /*CREATE USER_COMMENT*/
-    "create-user_comment" => [
+    "create-user-comment" => [
         "LogicController" => "CreateUserComment"
     ],
     /*READ USERS_COMMENT*/
-    "read-users_comment" => [
+    "read-user-comments" => [
         "LogicController" => "ReadUserComments"
     ],
     /*UPDATE USER_COMMENT*/
-    "update-user_comment" => [
+    "update-user-comment" => [
         "LogicController" => "UpdateUserComment"
     ],
     /*DELETE USER_COMMENT*/
-    "delete-user_comment" => [
+    "delete-user-comment" => [
         "LogicController" => "DeleteUserComment"
     ],
     /*****************RUTAS DE ENDPOINTS*****************/
