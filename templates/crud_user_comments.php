@@ -123,7 +123,27 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         cargarRegistros();
+        cargarUsers();
     });
+
+    function cargarUsers(){
+        fetch('/read-users')
+            .then(response => response.json())
+            .then(data => {
+                if (data != null) {
+                    var select = document.getElementById('user');
+                    for (let i = 0; i < data.length; i++) {
+                        var option = document.createElement('option');
+                        option.value = data[i].id; // Asignar el value desde data[i][id]
+                        option.text = data[i].fullname; // Asignar el texto desde data[i][fullname]
+                        select.appendChild(option); // Agregar la opción a
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error al obtener los datos:', error);
+            });
+    }
 
     function cargarRegistros() {
         fetch('/read-user-comments')
@@ -154,35 +174,33 @@
             <td>${registro.user}</td>
             <td>${registro.comment_text}</td>
             <td>${registro.likes}</td>
-            <td><button type="button" onclick="UpdateUser(${registro.id})" class="btn btn-success">Editar</button></td>
-            <td><button type="button" onclick="DeleteUser(${registro.id})" class="btn btn-danger">Eliminar</button></td>
+            <td><button type="button" onclick="UpdateUserComment(${registro.id})" class="btn btn-success">Editar</button></td>
+            <td><button type="button" onclick="DeleteUserComment(${registro.id})" class="btn btn-danger">Eliminar</button></td>
         `;
             tableBody.appendChild(row);
         });
     }
 
 
-    function CreateUpdateUser() {
+    function CreateUpdateUserComment() {
         var id = document.getElementById('id').value;
-        var fullname = document.getElementById('fullname').value;
-        var email = document.getElementById('email').value;
-        var pass = document.getElementById('pass').value;
-        var openid = document.getElementById('openid').value;
+        var user = document.getElementById('user').value;
+        var comment_text = document.getElementById('comment-text').value;
+        var likes = document.getElementById('likes').value;
         var ruta;
 
         if(id == null || id == ''){
-            ruta = 'create-user/';
+            ruta = 'create-user-comment/';
         }else{
-            ruta = 'update-user/'
+            ruta = 'update-user-comment/'
         }
 
         var formData = new FormData();
 
         formData.append('id', id);
-        formData.append('fullname', fullname);
-        formData.append('email', email);
-        formData.append('pass', pass);
-        formData.append('openid', openid);
+        formData.append('user', user);
+        formData.append('comment_text', comment_text);
+        formData.append('likes', likes);
 
         const http = new XMLHttpRequest();
         const URLdomain = window.location.host;
@@ -193,7 +211,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 if (this.responseText != 'null') {
                     swal("Correcto!", "El registro se creó con éxito!", "success");
-                    CleanFormUser();
+                    CleanFormUserComment();
                 } else {
                     swal("Error!", "Ocurrió un error", "error");
                 }
@@ -206,7 +224,7 @@
     }
 
     document.getElementById('btn-create-user-comment').addEventListener("click", function() {
-        CreateUpdateUser();
+        CreateUpdateUserComment();
     });
 
     function UpdateUser(id) {
