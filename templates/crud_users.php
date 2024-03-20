@@ -8,8 +8,6 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <p class="h3">Bienvenidos</p>
-                    <p>Este proyecto lo realize con php nativo, me ayude de algunas clases de desarrollo propio que utilizo para hacer proyectos con una estructura MVC</p>
-
 
                     <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUser">
                         Agregar nuevo user

@@ -29,7 +29,7 @@ class ViewController{
     }
 
     public function Index(){
-
+        $this->template ->CargarPlantilla('content', 'index.php');
     }
     
     public function CrudUsers(){
