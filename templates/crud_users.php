@@ -76,6 +76,8 @@
 
                     <input type="hidden" name="" id="id" value="">
 
+                    <input type="hidden" value="{token}" id="token">
+
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="label-fullname">FullName</span>
                         <input type="text" class="form-control" id="fullname" aria-label="Fullname" aria-describedby="Fullname">
@@ -171,6 +173,7 @@
 
 
     function CreateUpdateUser() {
+        var token = document.getElementById('token').value;
         var id = document.getElementById('id').value;
         var fullname = document.getElementById('fullname').value;
         var email = document.getElementById('email').value;
@@ -186,6 +189,7 @@
 
         var formData = new FormData();
 
+        formData.append('token', token);
         formData.append('id', id);
         formData.append('fullname', fullname);
         formData.append('email', email);
@@ -246,6 +250,8 @@
         var formData = new FormData();
 
         formData.append('id', id);
+        var token = document.getElementById('token').value;
+        formData.append('token', token);
 
         const http = new XMLHttpRequest();
         const URLdomain = window.location.host;

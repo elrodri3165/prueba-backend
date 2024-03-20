@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <p class="h3">Bienvenidos</p>
                 
-                    
+
                     <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCreateUserComment">
                         Agregar nuevo comentario
                     </button>
@@ -73,6 +73,8 @@
                 <form action="" method="post" id="form-create-user-comment">
 
                     <input type="hidden" name="" id="id" value="">
+
+                    <input type="hidden" value="{token}" id="token">
 
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="label-user">User</span>
@@ -182,6 +184,7 @@
 
 
     function CreateUpdateUserComment() {
+        var token = document.getElementById('token').value;
         var id = document.getElementById('id').value;
         var user = document.getElementById('user').value;
         var comment_text = document.getElementById('comment-text').value;
@@ -196,6 +199,7 @@
 
         var formData = new FormData();
 
+        formData.append('token', token);
         formData.append('id', id);
         formData.append('user', user);
         formData.append('comment_text', comment_text);
@@ -253,7 +257,9 @@
         
         var formData = new FormData();
 
+        var token = document.getElementById('token').value;
         formData.append('id', id);
+        formData.append('token', token);
 
         const http = new XMLHttpRequest();
         const URLdomain = window.location.host;

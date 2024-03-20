@@ -1,5 +1,6 @@
 <?php
 use core\clases\Template;
+use core\clases\WebMaker;
 
 class ViewController{
     
@@ -33,11 +34,15 @@ class ViewController{
     }
     
     public function CrudUsers(){
+        WebMaker::StartToken();
         $this->template ->CargarPlantilla('content', 'crud_users.php');
+        $this->template ->CargarVariable('token',TOKEN);;
     }
 
     public function CrudUserComments(){
+        WebMaker::StartToken();
         $this->template ->CargarPlantilla('content', 'crud_user_comments.php');
+        $this->template ->CargarVariable('token',TOKEN);;
     }
     
 }
