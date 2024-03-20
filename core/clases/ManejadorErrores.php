@@ -1,12 +1,9 @@
 <?php
-/****************************~WebMaker core MVC~************************************/
-/*~ Librería de clase proyecto WebMaker
-/*~ ManejnadorErrores.php
-/*~ VERSION 2.0
-/*~ 29/12/2023
+/****************************~core MVC~***********************************/
+/*~ Librería de clase proyecto core MVC
+/*~ ManejadorErrores.php
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
-
-/****************************~WebMaker core MVC~************************************/
+/****************************~core MVC~***********************************/
 namespace core\clases;
 
 

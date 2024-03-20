@@ -1,13 +1,9 @@
 <?php
-/****************************~WebMaker core MVC~************************************/
-/*~ Librería de clase proyecto WebMaker
+/****************************~core MVC~***********************************/
+/*~ Librería de clase proyecto core MVC
 /*~ Model.php
-/*~ VERSION 4.1
-/*~ 15/01/2024
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
-
-/****************************~WebMaker core MVC~************************************/
-
+/****************************~core MVC~***********************************/
 namespace core\clases;
 
 abstract class Model{

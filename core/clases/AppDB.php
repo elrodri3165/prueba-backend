@@ -1,12 +1,9 @@
 <?php
-/****************************~WebMaker core MVC~************************************/
-/*~ Librería de clase proyecto WebMaker
+/****************************~core MVC~***********************************/
+/*~ Librería de clase proyecto core MVC
 /*~ AppDB.php
-/*~ VERSION 3.0
-/*~ 29/12/2023
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
-
-/****************************~WebMaker core MVC~************************************/
+/****************************~core MVC~***********************************/
 namespace core\clases;
 use core\clases\ConectorDB as ConectorDB;
 use core\clases\ManejadorErrores as ManejadorErrores;

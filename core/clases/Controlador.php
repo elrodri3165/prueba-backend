@@ -1,13 +1,9 @@
 <?php
-/****************************~WebMaker core MVC~************************************/
-/*~ Librería de clase proyecto WebMaker
+/****************************~core MVC~***********************************/
+/*~ Librería de clase proyecto core MVC
 /*~ Controlador.php
-/*~ VERSION 4.1
-/*~ 21/02/2022
 /*~ Autor: Gallo Rodrigo Nicolas. RGweb.com.ar
-
-/****************************~WebMaker core MVC~************************************/
-
+/****************************~core MVC~***********************************/
 namespace core\clases;
 use core\clases\Route as Route;
 
