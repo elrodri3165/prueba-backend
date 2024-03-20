@@ -172,7 +172,7 @@
             row.innerHTML = `
             <td>${registro.id}</td>
             <td>${registro.user}</td>
-            <td>${registro.comment_text}</td>
+            <td>${registro.coment_text}</td>
             <td>${registro.likes}</td>
             <td><button type="button" onclick="UpdateUserComment(${registro.id})" class="btn btn-success">Editar</button></td>
             <td><button type="button" onclick="DeleteUserComment(${registro.id})" class="btn btn-danger">Eliminar</button></td>
@@ -227,18 +227,17 @@
         CreateUpdateUserComment();
     });
 
-    function UpdateUser(id) {
-        fetch('/read-users')
+    function UpdateUserComment(id) {
+        fetch('/read-user-comments')
             .then(response => response.json())
             .then(data => {
                 if (data != null) {
                     for (var i = 0; i < data.length; i++) {
                         if (data[i]['id'] == id) {
                             document.getElementById('id').value = data[i]['id'];
-                            document.getElementById('fullname').value = data[i]['fullname'];
-                            document.getElementById('email').value = data[i]['email'];
-                            document.getElementById('pass').value = data[i]['pass'];
-                            document.getElementById('openid').value = data[i]['openid'];
+                            document.getElementById('user').value = data[i]['user'];
+                            document.getElementById('comment-text').value = data[i]['coment_text'];
+                            document.getElementById('likes').value = data[i]['likes'];
                             abrirModal(false);
                         }
                     }
@@ -250,8 +249,8 @@
     }
 
 
-    function DeleteUser(id){
-        ruta = 'delete-user/';
+    function DeleteUserComment(id){
+        ruta = 'delete-user-comment/';
         
         var formData = new FormData();
 
@@ -266,7 +265,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 if (this.responseText != 'null') {
                     swal("Correcto!", "El registro se eliminó con éxito!", "success");
-                    CleanFormUser();
+                    CleanFormUserComment();
                 } else {
                     swal("Error!", "Ocurrió un error", "error");
                 }

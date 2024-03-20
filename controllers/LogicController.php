@@ -98,7 +98,7 @@ class LogicController{
     {
         if(isset($_POST['id'], $_POST['user'], $_POST['comment_text'], $_POST['likes'])){
             $user_comment = new \user_comment();
-            $user_comment->setUser($_POST['id']);
+            $user_comment->setId($_POST['id']);
             $user_comment->setUser($_POST['user']);
             $user_comment->setComent_text($_POST['comment_text']);
             $user_comment->setLikes($_POST['likes']);
